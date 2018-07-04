@@ -1,0 +1,54 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:c="sap.ui.demo.todo.controls" controllerName="sap.ui.demo.todo.controller.App" displayBlock="true">
+	<Shell>
+		<App>
+			<Page title="{i18n>TITLE}" backgroundDesign="Solid">
+				<subHeader>
+					<Toolbar>
+						<SearchField id="searchTodoItemsInput" liveChange="onSearch" width="100%" />
+					</Toolbar>
+				</subHeader>
+				<content>
+					<VBox>
+						<CheckBox selected="{gridSettings>/allowDrag}" text="Allow Drag"/>
+						<Label text="{gridSettings>/allowDrag}"/>
+						<Panel headerText="Test Gridster" class="redbg">
+							<c:Grid allowDrag="{gridSettings>/allowDrag}">
+								<c:GridElement row="1" column="1" rowSpan="1" columnSpan="1">
+									<Panel>
+										<Label text="Test"/>
+										<Label text="Test asfdsafsafsa"/>
+										<Button text="Test"/>
+									</Panel>
+								</c:GridElement>
+								<c:GridElement row="1" column="2" rowSpan="1" columnSpan="1">
+									<Label text="Test 2"/>
+								</c:GridElement>
+								<c:GridElement row="2" column="1" rowSpan="3" columnSpan="3">
+									<Label text="Test 3"/>
+								</c:GridElement>
+							</c:Grid>
+						</Panel>
+					</VBox>
+				</content>
+				<footer>
+					<Bar>
+						<contentMiddle>
+							<SegmentedButton selectedKey="all" select="onFilter" class="sapMSegmentedButtonNoAutoWidth">
+								<items>
+									<SegmentedButtonItem id="filterButton-all" text="All" key="all" />
+									<SegmentedButtonItem id="filterButton-active" text="Active" key="active" />
+									<SegmentedButtonItem id="filterButton-completed" text="Completed" key="completed" />
+								</items>
+							</SegmentedButton>
+						</contentMiddle>
+						<contentRight>
+							<Button id="clearCompleted" enabled="{/itemsRemovable}" icon="sap-icon://delete" text="{i18n>CLEAR_COMPLETED}" press="clearCompleted" />
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</App>
+	</Shell>
+</mvc:View>
